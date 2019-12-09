@@ -1,1 +1,1 @@
-# holbertonschool-higher_level_programming
+#This repository has projects to practice high level programming with Python language
