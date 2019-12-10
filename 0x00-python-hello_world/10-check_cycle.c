@@ -14,14 +14,12 @@ int check_cycle(listint_t *list)
 
 	hare = list;
 	tortuise = list;
-	while (1)
+	while (hare && hare->next->next && tortuise->next)
 	{
-		if (hare == NULL || hare->next == NULL)
-			return (0);
 		hare = hare->next->next;
 		tortuise = tortuise->next;
 		if (tortuise == hare)
 			return (1);
-
 	}
+	return (0);
 }
