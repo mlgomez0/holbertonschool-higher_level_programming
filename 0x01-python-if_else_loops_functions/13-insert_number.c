@@ -25,7 +25,7 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		*head = new_node;
 		new_node->next = tmp1;
-		return (new_node);
+		return (*head);
 	}
 	while (tmp1->next)
 	{
@@ -36,9 +36,9 @@ listint_t *insert_node(listint_t **head, int number)
 			tmp2 = tmp1->next;
 			tmp1->next = new_node;
 			new_node->next = tmp2;
-			return (new_node);
+			return (*head);
 		}
 	}
 	tmp1->next = new_node;
-	return (new_node);
+	return (*head);
 }
