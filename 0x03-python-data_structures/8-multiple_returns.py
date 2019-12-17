@@ -6,4 +6,3 @@ def multiple_returns(sentence):
     else:
         t = (len(sentence), sentence[0])
         return (t)
-
