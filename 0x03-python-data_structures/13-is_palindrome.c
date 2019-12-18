@@ -12,11 +12,7 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL || head == NULL || (*head)->next == NULL)
 		return (1);
-	while (temp)
-	{
-		len++;
-		temp = temp->next;
-	}
+	len = len_list(temp);
 	temp = *head;
 	for (i = 0; i < len / 2; i++)
 	{
@@ -30,4 +26,21 @@ int is_palindrome(listint_t **head)
 		temp = temp->next;
 	}
 	return (1);
+}
+
+/**
+ *is_palindrome - this function evaluates if singly linked list is palindrome
+ *@head:head of the singly linked list
+ *Return: 0 if it is not palidrome or 1 if it is palindrome
+ */
+int len_list(listint_t *temp)
+{
+	int len = 0;
+
+	while (temp)
+	{
+		len++;
+		temp = temp->next;
+	}
+	return (len);
 }
