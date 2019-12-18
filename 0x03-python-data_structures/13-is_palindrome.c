@@ -29,9 +29,9 @@ int is_palindrome(listint_t **head)
 }
 
 /**
- *is_palindrome - this function evaluates if singly linked list is palindrome
- *@head:head of the singly linked list
- *Return: 0 if it is not palidrome or 1 if it is palindrome
+ *len_list - calculate the size of a linked list
+ *@temp:head of the singly linked list
+ *Return: the size of the list
  */
 int len_list(listint_t *temp)
 {
