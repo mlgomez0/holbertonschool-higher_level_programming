@@ -7,27 +7,42 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head, *temp2;
+	listint_t *temp = *head;
 	int len = 0, i, j;
+	int buf[4096];
 
-	if (*head == NULL || head == NULL || (*head)->next == NULL)
+	if (*head == NULL)
 		return (1);
+	len = len_list(temp);
+	temp = *head;
+	for (i = 0; i < len; i++)
+	{
+		buf[i] = temp->n;
+		temp = temp->next;
+	}
+	temp = *head;
+	for (j = 0; j < len; j++)
+	{
+		if (temp->n != buf[len - 1 - j])
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+/**
+ *len_list - calculate the size of a linked list
+ *@temp:head of the singly linked list
+ *Return: the size of the list
+ */
+int len_list(listint_t *temp)
+{
+	int len = 0;
+
 	while (temp)
 	{
 		len++;
 		temp = temp->next;
 	}
-	temp = *head;
-	for (i = 0; i < len / 2; i++)
-	{
-		temp2 = *head;
-		for (j = 1; j < (len - i); j++)
-		{
-			temp2 = temp2->next;
-		}
-		if (temp2->n != temp->n)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
+	return (len);
 }
