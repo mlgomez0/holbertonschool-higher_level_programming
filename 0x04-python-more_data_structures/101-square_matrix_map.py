@@ -1,8 +1,3 @@
 #!/usr/bin/python3
 def square_matrix_map(matrix=[]):
-    if not matrix:
-        return (None)
-
-    def squ_root(a_list=[]):
-        return([x * x for x in a_list])
-    return(list(map(squ_root, matrix)))
+    return(list(map(lambda x:  list(map(lambda x: x * x, x)), matrix)))
