@@ -2,6 +2,7 @@
 def square_matrix_map(matrix=[]):
     if not matrix:
         return (None)
-    def my_func(matrix=[]):
-        return([[x * x for x in y] for y in matrix])
-    return(list(map(my_func, matrix)))
+
+    def squ_root(a_list=[]):
+        return([x * x for x in a_list])
+    return(list(map(squ_root, matrix)))
