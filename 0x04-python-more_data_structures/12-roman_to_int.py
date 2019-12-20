@@ -12,5 +12,5 @@ def roman_to_int(roman_string):
                 sum_num += v
                 tem = v
             elif i == k and tem < v:
-                sum_num -= v
+                sum_num = sum_num - (2 * tem) + v
     return(abs(sum_num))
