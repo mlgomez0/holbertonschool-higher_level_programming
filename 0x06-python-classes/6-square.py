@@ -7,6 +7,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
+
         if (type(position) != tuple or (len(position) != 2)
 			or type(position[0]) != int or type(position[1]) != int
 			or position[0] < 0 or position[1] < 0):
@@ -42,8 +43,11 @@ class Square:
 
     def my_print(self):
         if (self.__size != 0):
+            if (self.__position[1] >= 1):
+                print("")
             for i in range(self.__size):
-                print((self.__position[0] * " "), end='')
+                if (self.__position[0] <= 1):
+                    print((self.__position[0] * " "), end='')
                 print(self.__size * "#")
         else:
             print("")
