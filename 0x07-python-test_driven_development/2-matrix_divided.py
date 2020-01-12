@@ -14,16 +14,24 @@ def matrix_divided(matrix, div):
         matrix: The return value is a matrix
     """
 
-    if (isinstance(matrix[0], list) == False):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    str1 = "matrix must be a matrix (list of lists)"
+    str2 = "of integers/floats"
+    my_matrix = []
+    my_row = []
+    if ((isinstance(matrix[0], list) is False) or div is None):
+        raise TypeError(str1 + " " + str2)
 
+    if (div == 0):
+        raise ZeroDivisionError("division by zero")
     a = len(matrix[0])
     for row in matrix:
-        if (len(row) != a)
+        if (len(row) != a):
             raise TypeError("Each row of the matrix must have the same size")
         a = len(row)
         for x in row:
-            if (type(x) != int and type(x) != float)
-
-
-    return(list(map(lambda x:  list(map(lambda x: x / div if (type(x) == int or type(x) == float) else raise TypeError("matrix must be a matrix (list of lists) of integers/floats"), x)), matrix)))
+            if (type(x) != int and type(x) != float):
+                raise TypeError(str1 + " " + str2)
+            my_row.append(round((int(x) / int(div)), 2))
+        my_matrix.append(my_row)
+        my_row = []
+    return (my_matrix)
