@@ -1,0 +1,32 @@
+====================
+3. Print square:
+====================
+
+Import module:
+    >>> print_square = __import__('4-print_square').print_square
+
+Function:
+=======.
+Write a function that prints a square with the character #.
+
+Operations:
+=========
+'size' size must be an integer, otherwise raise a TypeError exception with the message size must be an integer.
+
+'size' is integer:
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+'size' is float:
+    >>> print_square(0.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+'size' is a string:
+    >>> print_square("Mary")
+    Traceback (most recent call last):
+    TypeError: size must be an integer

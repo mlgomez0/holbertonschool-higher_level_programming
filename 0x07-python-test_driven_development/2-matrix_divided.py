@@ -31,7 +31,7 @@ def matrix_divided(matrix, div):
         for x in row:
             if (type(x) != int and type(x) != float):
                 raise TypeError(str1 + " " + str2)
-            my_row.append(round((int(x) / int(div)), 2))
+            my_row.append(round((x / div), 2))
         my_matrix.append(my_row)
         my_row = []
     return (my_matrix)
