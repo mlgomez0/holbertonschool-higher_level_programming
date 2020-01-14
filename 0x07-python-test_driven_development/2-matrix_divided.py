@@ -1,19 +1,24 @@
 #!/usr/bin/python3
-"""This module has one function matrix_divided"""
+"""This module has one function matrix_divided.
+
+The module has one function matrix_divided.
+"""
 
 
 def matrix_divided(matrix, div):
-    """
-    Function matrix_divided:
+    """Function matrix_divided.
+
+    This function divides all elements in the matrix by a
+    given integer:
 
     Args:
-        matrix (matrix): The first parameter.
-        div (int or float): The second parameter
+        matrix (matrix): 2D list of integer or floats.
+        div (int or float): Multiply each element
 
     Returns:
         matrix: The return value is a matrix
-    """
 
+    """
     str1 = "matrix must be a matrix (list of lists)"
     str2 = "of integers/floats"
     my_matrix = []

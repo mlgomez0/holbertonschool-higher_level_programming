@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-"""This module has one function add_integer"""
+"""This module has one function to add two integers.
+
+The module has one function add_integer.
+"""
 
 
 def add_integer(a, b=98):
-    """
-    Function add integer:
+    """Function add integer.
+
+    This functions add two integers or floats.
 
     Args:
         a (int or float): The first parameter.
@@ -12,6 +16,7 @@ def add_integer(a, b=98):
 
     Returns:
         int: The return value is an integer addition of the two arguments
+
     """
     if ((type(a) != int and type(a) != float) or a is None):
         raise TypeError("a must be an integer")

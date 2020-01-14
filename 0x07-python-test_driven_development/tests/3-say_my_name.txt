@@ -37,10 +37,6 @@ Easy case
     >>> say_my_name("John", "Smith")
     My name is John Smith
 
-only one parameter
-    >>> say_my_name("Bob")
-    My name is Bob
-
 wrong parameter
     >>> say_my_name(3)
     Traceback (most recent call last):
@@ -56,27 +52,9 @@ None name
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
-empty parameter
-    >>> say_my_name("")
-    My name is
-
-only one parameter
-    >>> say_my_name("Baby")
-    My name is Baby
-
 space parameter
     >>> say_my_name(" ", "Riaño")
     My name is   Riaño
-
-space names
-    >>> say_my_name(" ", " ")
-    My name is
-
-Test case #11: A test case with two new lines
-    >>> say_my_name('\n', '\n')
-    My name is
-    <BLANKLINE>
-    <BLANKLINE>
 
 ‘first_name’ must be a string:
     >>> say_my_name(True, "Gomez")
