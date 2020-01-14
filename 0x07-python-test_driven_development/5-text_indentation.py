@@ -10,7 +10,7 @@ def text_indentation(text):
         text (str): string to be split
 
     Returns:
-        prints a text with 2 new lines after each of these characters: ., ? and :
+        prints a text with 2 new lines after  characters: ., ? and :
     """
 
     str_new = ""
@@ -24,8 +24,9 @@ def text_indentation(text):
                 flag_spa = 2
             if (flag_spa == 2):
                 str_new = str_new + i
-            if (i == '?' or i == '.' or i ==':'or m == (len(text) - 1)):
-                if (m == (len(text) - 1)):
+            if (i == '?' or i == '.' or i == ':'or m == (len(text) - 1)):
+                k = len(text) - 1
+                if (m == k and i != '?' and i != '.' and i != ':'):
                     print(str_new, end="")
                 else:
                     print(str_new)

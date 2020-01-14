@@ -18,13 +18,22 @@ def matrix_divided(matrix, div):
     str2 = "of integers/floats"
     my_matrix = []
     my_row = []
-    if ((isinstance(matrix[0], list) is False) or div is None):
+    if (len(matrix) == 0):
         raise TypeError(str1 + " " + str2)
-
+    if (type(matrix[0]) != list):
+        raise TypeError(str1 + " " + str2)
+    if (len(matrix[0]) == 0):
+        raise TypeError(str1 + " " + str2)
     if (div == 0):
         raise ZeroDivisionError("division by zero")
+    if ((type(div) != int and type(div) != float) or div is None):
+        raise TypeError("div must be a number")
     a = len(matrix[0])
     for row in matrix:
+        if (type(row) != list):
+            raise TypeError(str1 + " " + str2)
+        if (len(row) == 0):
+            raise TypeError(str1 + " " + str2)
         if (len(row) != a):
             raise TypeError("Each row of the matrix must have the same size")
         a = len(row)

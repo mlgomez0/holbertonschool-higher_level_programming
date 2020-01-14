@@ -2,8 +2,8 @@
 matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 matrix = [
-    [1, 2, 4],
+    [1, 5, 4],
     [4, 5, 6]
 ]
-print(matrix_divided(4, 3))
+print(matrix_divided(matrix, float('inf'))
 print(matrix)

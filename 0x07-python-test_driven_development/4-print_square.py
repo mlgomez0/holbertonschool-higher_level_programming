@@ -19,4 +19,4 @@ def print_square(size):
         raise ValueError("size must be >= 0")
     else:
         a = (size * "#") + "\n"
-        print(size * a, end= "")
+        print(size * a, end="")
