@@ -24,18 +24,19 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         Rectangle.number_of_instances += 1
         Rectangle.print_symbol = Rectangle.print_symbol
-        if (type(height) != int):
-            raise TypeError("height must be an integer")
-        elif (height < 0):
-            raise ValueError("height must be >= 0")
-        else:
-            self.__height = height
         if (type(width) != int):
             raise TypeError("width must be an integer")
         elif (width < 0):
             raise ValueError("width must be >= 0")
         else:
             self.__width = width
+        if (type(height) != int):
+            raise TypeError("height must be an integer")
+        elif (height < 0):
+            raise ValueError("height must be >= 0")
+        else:
+            self.__height = height
+
 
     def area(self):
         return self.height * self.width
@@ -74,12 +75,7 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        if (type(size) != int):
-            raise TypeError("width must be an integer")
-        elif (size < 0):
-            raise ValueError("width must be >= 0")
-        else:
-            return Rectangle(size, size)
+        return Rectangle(size, size)
 
     @property
     def height(self):
