@@ -7,6 +7,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         Rectangle.number_of_instances += 1
+        Rectangle.print_symbol = Rectangle.print_symbol
         if (type(height) != int):
             raise TypeError("height must be an integer")
         elif (height < 0):
@@ -31,8 +32,8 @@ class Rectangle:
 
     def __str__(self):
         if (self.height != 0 and self.width != 0):
-            a = self.width * Rectangle.print_symbol + "\n"
-            b = self.width * "#"
+            a = self.width * "{0!s}".format(self.print_symbol) + "\n"
+            b = self.width * "{0!s}".format(self.print_symbol)
             return ((self.height - 1) * a + b)
         else:
             return ("")
