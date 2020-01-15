@@ -7,7 +7,7 @@ The module has the class Rectangle.
 
 class Rectangle:
     """class rectangle.
-       the class pass
+    the class pass
 
     """
 

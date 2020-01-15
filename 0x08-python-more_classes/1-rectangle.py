@@ -1,6 +1,16 @@
 #!/usr/bin/python3
+"""This module  has a class for rectangule instances.
+
+The module has the class Rectangle.
+"""
+
 
 class Rectangle:
+    """class rectangle.
+    the class defines the height and width prived
+    instance attributes, getter and setter method for each.
+
+    """
 
     def __init__(self, width=0, height=0):
         if (type(height) != int):

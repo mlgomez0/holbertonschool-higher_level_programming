@@ -1,6 +1,22 @@
 #!/usr/bin/python3
+"""This module  has a class for rectangule instances.
+
+The module has the class Rectangle.
+"""
+
 
 class Rectangle:
+    """class rectangle.
+
+    the class defines the height and width prived
+    instance attributes, getter and setter method for each
+    area and permiter methods,  __str__ implementation
+    __repr__ to be print with print() and str()
+    __del__ method implementation, public class attribute
+    number_of_instances, public class attribute print_symbol..
+    static method bigger_or_equal.
+
+    """
 
     number_of_instances = 0
     print_symbol = "#"
