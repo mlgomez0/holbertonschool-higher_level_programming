@@ -74,6 +74,8 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        if (type(size) != int):
+            raise TypeError("width must be an integer")
         return Rectangle(size, size)
 
     @property
