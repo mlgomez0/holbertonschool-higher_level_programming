@@ -22,5 +22,3 @@ def read_lines(filename="", nb_lines=0):
             for i in range(nb_lines):
                 if my_file is not "":
                     print(my_file.readline(), end='')
-
-

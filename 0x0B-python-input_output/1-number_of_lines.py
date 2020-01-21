@@ -19,5 +19,3 @@ def number_of_lines(filename=""):
         for line in my_file:
             count += 1
         return count
-
-
