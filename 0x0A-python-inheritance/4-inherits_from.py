@@ -11,6 +11,13 @@ def inherits_from(obj, a_class):
     It returns True or False pending if the given object
     is an instance of a class that inherits from given class.
 
+    Args:
+        obj: object to be evaluated
+        a_class: class to be evaluated
+
+    Returns:
+        True or False
+
     """
     if (isinstance(obj, a_class) is True and type(obj) != a_class):
         return (True)

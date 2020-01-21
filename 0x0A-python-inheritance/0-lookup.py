@@ -10,5 +10,11 @@ def lookup(obj):
     The lookup function retorn the attributes
     and methos of a given object.
 
+    Args:
+        obj (obj): to be evaluated
+
+    Returns:
+        list of attributes and methods of object
+
     """
     return (dir(obj))

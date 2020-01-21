@@ -11,8 +11,13 @@ class MyList(list):
     print_sorted method that prints a list bur sorted
     ascending.
 
-    """
+    Args:
+        obj: it evaluates an object
 
+    Returns:
+        no returns
+
+    """
     def print_sorted(self):
         my_copy = self[:]
         my_copy.sort()
