@@ -14,5 +14,6 @@ class MyInt(int):
 
     def __ne__(*args):
         return True
+
     def __eq__(*args):
         return False
