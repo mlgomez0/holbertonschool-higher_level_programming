@@ -37,3 +37,9 @@ clear method:
     >>> my_list.clear()
     >>> print(my_list)
     []
+
+send not list:
+    >>> my_list = 9
+    >>> my_list.append(5)
+    Traceback (most recent call last):
+    AttributeError: 'int' object has no attribute 'append'
