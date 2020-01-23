@@ -3,6 +3,7 @@ from models.base import Base
 """This module  has a Rectangle.
 """
 
+
 class Rectangle(Base):
 
     """class Rectangle.
@@ -38,6 +39,34 @@ class Rectangle(Base):
             self.__y = y
         self.id = id
         super().__init__(self.id)
+
+    def area(self):
+        return self.__width * self.__height
+
+    def display(self):
+        s = "\n" * self.__y
+        a = self.__width * "#" + "\n"
+        b = " " * self.__x
+        print(s + self.__height * (b + a), end="")
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        m = 0
+        for arg in args:
+            if m == 0:
+                super().__init__(arg)
+            if m == 1:
+                self.width = arg
+            if m == 2:
+                self.height = arg
+            if m == 3:
+                self.x = arg
+            if m == 4:
+                self.y = arg
+            m += 1
 
     @property
     def width(self):
