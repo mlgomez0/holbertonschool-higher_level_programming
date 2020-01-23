@@ -53,20 +53,33 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         m = 0
-        for arg in args:
-            if m == 0:
-                super().__init__(arg)
-            if m == 1:
-                self.width = arg
-            if m == 2:
-                self.height = arg
-            if m == 3:
-                self.x = arg
-            if m == 4:
-                self.y = arg
-            m += 1
+        if args != None and args != ():
+            for arg in args:
+                if m == 0:
+                    super().__init__(arg)
+                if m == 1:
+                    self.width = arg
+                if m == 2:
+                    self.height = arg
+                if m == 3:
+                    self.x = arg
+                if m == 4:
+                    self.y = arg
+                m += 1
+        elif kwargs != None and kwargs != {}:
+            for key, value in kwargs.items():
+                if key == "id":
+                    super().__init__(value)
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
 
     @property
     def width(self):
