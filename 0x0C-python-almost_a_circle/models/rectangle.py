@@ -60,26 +60,26 @@ class Rectangle(Base):
                 if m == 0:
                     super().__init__(arg)
                 if m == 1:
-                    self.width = arg
+                    self.__width = arg
                 if m == 2:
-                    self.height = arg
+                    self.__height = arg
                 if m == 3:
-                    self.x = arg
+                    self.__x = arg
                 if m == 4:
-                    self.y = arg
+                    self.__y = arg
                 m += 1
         elif kwargs != None and kwargs != {}:
             for key, value in kwargs.items():
                 if key == "id":
                     super().__init__(value)
                 if key == "width":
-                    self.width = value
+                    self.__width = value
                 if key == "height":
-                    self.height = value
+                    self.__height = value
                 if key == "x":
-                    self.x = value
+                    self.__x = value
                 if key == "y":
-                    self.y = value
+                    self.__y = value
 
     @property
     def width(self):

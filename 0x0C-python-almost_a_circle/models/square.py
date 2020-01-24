@@ -23,6 +23,32 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.__x, self.__y, self.__width)
 
+    def update(self, *args, **kwargs):
+        m = 0
+        if args != None and args != ():
+            for arg in args:
+                if m == 0:
+                    self.id = arg
+                if m == 1:
+                    self.__width = arg
+                    self.__height = arg
+                if m == 2:
+                    self.__x = arg
+                if m == 3:
+                    self.__y = arg
+                m += 1
+        elif kwargs != None and kwargs != {}:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.__width = value
+                    self.__height = value
+                if key == "x":
+                    self.__x = value
+                if key == "y":
+                    self.__y = value
+
     @property
     def size(self):
         return self.__width
