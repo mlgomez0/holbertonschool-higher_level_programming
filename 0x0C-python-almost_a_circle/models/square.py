@@ -13,41 +13,22 @@ class Square(Rectangle):
     """
 
     def __init__(self, size, x=0, y=0, id=None):
-        self.__width = size
-        self.__height = size
-        self.__x = x
-        self.__y = y
-        super().__init__(self.__width, self.__height, self.__x, self.__y, id)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.__x, self.__y, self.__width)
+            self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
-        m = 0
+        my_attris = ["id", "size", "x", "y"]
         if args != None and args != ():
-            for arg in args:
-                if m == 0:
-                    self.id = arg
-                if m == 1:
-                    self.__width = arg
-                    self.__height = arg
-                if m == 2:
-                    self.__x = arg
-                if m == 3:
-                    self.__y = arg
-                m += 1
+            for i in range(len(my_attris)):
+                if i < len(args):
+                    setattr(self, my_attris[i], args[i])
         elif kwargs != None and kwargs != {}:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                if key == "size":
-                    self.__width = value
-                    self.__height = value
-                if key == "x":
-                    self.__x = value
-                if key == "y":
-                    self.__y = value
+                if key in my_attris:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         new_dir = {}
@@ -65,7 +46,7 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        return self.__width
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -74,5 +55,5 @@ class Square(Rectangle):
         elif (value <= 0):
             raise ValueError("width must be > 0")
         else:
-            self.__width = value
-            self.__height = value
+            self.width = value
+            self.height = value

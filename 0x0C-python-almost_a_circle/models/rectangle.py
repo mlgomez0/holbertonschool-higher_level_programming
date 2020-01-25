@@ -38,8 +38,7 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = y
-        self.id = id
-        super().__init__(self.id)
+        super().__init__(id)
 
     def area(self):
         return self.__width * self.__height
@@ -55,33 +54,14 @@ class Rectangle(Base):
             self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
-        m = 0
+        my_attris = ["id", "width", "height", "x", "y"]
         if args != None and args != ():
-            for arg in args:
-                if m == 0:
-                    super().__init__(arg)
-                if m == 1:
-                    self.__width = arg
-                if m == 2:
-                    self.__height = arg
-                if m == 3:
-                    self.__x = arg
-                if m == 4:
-                    self.__y = arg
-                m += 1
+            for i in range(len(my_attris)):
+                if i < len(args):
+                    setattr(self, my_attris[i], args[i])
         elif kwargs != None and kwargs != {}:
             for key, value in kwargs.items():
-                if key == "id":
-                    super().__init__(value)
-                if key == "width":
-                    self.__width = value
-                if key == "height":
-                    self.__height = value
-                if key == "x":
-                    self.__x = value
-                if key == "y":
-                    self.__y = value
-
+                setattr(self, key, value)
 
     def to_dictionary(self):
         my_copy = {}
@@ -140,7 +120,7 @@ class Rectangle(Base):
     def y(self):
         return self.__y
 
-    @x.setter
+    @y.setter
     def y(self, value):
         if (type(value) != int):
             raise TypeError("y must be an integer")
