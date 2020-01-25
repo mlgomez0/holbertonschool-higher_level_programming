@@ -35,9 +35,12 @@ class Base:
     def save_to_file(cls, list_objs):
         if list_objs == None:
             list_objs = []
-        if issubclass(type(list_objs[0]), Base):
-            with open("Rectangle.json", mode="w", encoding="utf-8") as my_file:
-                my_json = cls.to_json_string(list_objs[0].to_dictionary())
+        if cls == "Rectangle" or cls == "Square":
+            file_to = cls + ".json"
+            for obj in list_objs:
+                dir_obj = self.to_dictionary()
+                with open(file_to, mode="w", encoding="utf-8") as my_file:
+                    my_json = cls.to_json_string(list_objs[0].to_dictionary())
                 my_file.write(str(my_json))
         if issubclass(type(list_objs[0]), cls):
             with open("Square.json", mode="w", encoding ="utf-8") as my_file1:
