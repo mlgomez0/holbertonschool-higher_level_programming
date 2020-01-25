@@ -84,7 +84,9 @@ class Rectangle(Base):
 
 
     def to_dictionary(self):
-        my_copy = self.__dict__
+        my_copy = {}
+        for k, v in self.__dict__.items():
+            my_copy[k] = v
         for key, value in my_copy.items():
             tem_atr = key.split("__")
             if len(tem_atr) > 1:
