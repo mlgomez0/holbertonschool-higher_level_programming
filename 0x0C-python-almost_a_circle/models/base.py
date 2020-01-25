@@ -77,6 +77,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         obj = cls(1, 1)
+        Base.__nb_objects -= 1
         if isinstance(obj, Base) is True and len(obj.__dict__) == 5:
             if os.path.isfile("Rectangle.json") is False:
                 return []
