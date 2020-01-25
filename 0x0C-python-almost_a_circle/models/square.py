@@ -49,6 +49,20 @@ class Square(Rectangle):
                 if key == "y":
                     self.__y = value
 
+    def to_dictionary(self):
+        new_dir = {}
+        copy_dir = self.__dict__
+        for k, v in self.__dict__.items():
+            attr_sq = k.split("__")
+            if len(attr_sq) > 1:
+                if attr_sq[1] == "width" or attr_sq[1] == "height":
+                    attr_sq[1] = "size"
+                clear_attr = attr_sq[1]
+            else:
+                clear_attr = attr_sq[0]
+            new_dir[clear_attr] = v
+        return new_dir
+
     @property
     def size(self):
         return self.__width

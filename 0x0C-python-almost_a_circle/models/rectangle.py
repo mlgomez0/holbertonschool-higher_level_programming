@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.base import Base
+
 """This module  has a Rectangle.
 """
 
@@ -80,6 +81,19 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
+
+
+    def to_dictionary(self):
+        my_copy = self.__dict__
+        for key, value in my_copy.items():
+            tem_atr = key.split("__")
+            if len(tem_atr) > 1:
+                clean_atr = tem_atr[1]
+                my_copy[clean_atr] = value
+                del my_copy[key]
+        return my_copy
+
+
 
     @property
     def width(self):
