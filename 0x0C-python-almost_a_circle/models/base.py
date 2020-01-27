@@ -84,7 +84,7 @@ class Base:
         this method returns an instance with all elements
         already set
         """
-        if dictionary is not None:
+        if dictionary is not None and len(dictionary) != 0:
             obj = cls(1, 1)
             obj.update(**dictionary)
             return obj
