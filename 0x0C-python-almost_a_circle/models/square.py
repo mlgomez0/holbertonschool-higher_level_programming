@@ -8,7 +8,8 @@ class Square(Rectangle):
 
     """class Square.
     the class defines the private instance attributes:
-    __width, __height, __x, __y
+    __width, __height, __x, __y, setter and getter for size
+    to_dictionary, update public methods.
 
     """
 
@@ -21,11 +22,11 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         my_attris = ["id", "size", "x", "y"]
-        if args != None and args != ():
+        if args is not None and args != ():
             for i in range(len(my_attris)):
                 if i < len(args):
                     setattr(self, my_attris[i], args[i])
-        elif kwargs != None and kwargs != {}:
+        elif kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
                 if key in my_attris:
                     setattr(self, key, value)

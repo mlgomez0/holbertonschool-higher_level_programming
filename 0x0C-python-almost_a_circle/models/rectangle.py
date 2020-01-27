@@ -55,11 +55,11 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         my_attris = ["id", "width", "height", "x", "y"]
-        if args != None and args != ():
+        if args is not None and args != ():
             for i in range(len(my_attris)):
                 if i < len(args):
                     setattr(self, my_attris[i], args[i])
-        elif kwargs != None and kwargs != {}:
+        elif kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
@@ -74,8 +74,6 @@ class Rectangle(Base):
                 my_copy[clean_atr] = value
                 del my_copy[key]
         return my_copy
-
-
 
     @property
     def width(self):
