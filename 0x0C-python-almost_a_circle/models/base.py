@@ -84,9 +84,10 @@ class Base:
         this method returns an instance with all elements
         already set
         """
-        obj = cls(1, 1)
-        obj.update(**dictionary)
-        return obj
+        if dictionary is not None:
+            obj = cls(1, 1)
+            obj.update(**dictionary)
+            return obj
 
     @classmethod
     def load_from_file(cls):
