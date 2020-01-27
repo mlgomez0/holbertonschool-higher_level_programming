@@ -18,6 +18,11 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """__init__.
+
+        init method to initiate every instance
+
+        """
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
@@ -26,6 +31,9 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+        method to convert a list of dict into json string
+        """
         if (list_dictionaries is None) or \
                 (type(list_dictionaries) is not list) or \
                 (len(list_dictionaries) == 0):
@@ -37,6 +45,10 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """
+        method to convert a json string into a list
+        of json string representations
+        """
         if (json_string is None) or \
                 (type(json_string) is not str) or \
                 (len(json_string) == 0):
@@ -46,6 +58,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """
+        method that writes a json string representation
+        into a file
+        """
         class_name = cls.__name__
         file_name = class_name + ".json"
         my_dir = []
@@ -64,12 +80,20 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        this method returns an instance with all elements
+        already set
+        """
         obj = cls(1, 1)
         obj.update(**dictionary)
         return obj
 
     @classmethod
     def load_from_file(cls):
+        """
+        this method return a list of instances
+        """
+
         class_name = cls.__name__
         my_file = class_name + ".json"
         if os.path.isfile(my_file) is False:
