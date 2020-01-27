@@ -84,8 +84,12 @@ class Base:
         this method returns an instance with all elements
         already set
         """
-        if dictionary is not None and len(dictionary) != 0:
+        if cls.__name__ == "Rectangle":
             obj = cls(1, 1)
+            obj.update(**dictionary)
+            return obj
+        elif cls.__name__ == "Square":
+            obj = cls(1)
             obj.update(**dictionary)
             return obj
 
