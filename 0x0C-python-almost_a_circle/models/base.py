@@ -9,8 +9,8 @@ The module has the class Base.
 
 
 class Base:
-
     """class Base.
+
     the class pass defines a id attribute.
 
     """
@@ -93,7 +93,6 @@ class Base:
         """
         this method return a list of instances
         """
-
         class_name = cls.__name__
         my_file = class_name + ".json"
         if os.path.isfile(my_file) is False:
