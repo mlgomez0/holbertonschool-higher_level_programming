@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-import json
-import os
-
 """This module  has a class.
 
 The module has the class Base.
 """
+import json
+import os
 
 
 class Base:
