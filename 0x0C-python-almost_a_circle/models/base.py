@@ -129,8 +129,9 @@ class Base:
                     a = 1
                     my_dir.append(obj.to_dictionary())
             if a == 1:
-                with open(file_name, mode="w", encoding="utf-8", newline= '') as my_file:
-                    fc = csv.DictWriter(my_file, fieldnames = my_dir[0].keys())
+                with open(file_name, mode="w", encoding="utf-8", newline='') \
+                        as my_file:
+                    fc = csv.DictWriter(my_file, fieldnames=my_dir[0].keys())
                     fc.writeheader()
                     fc.writerows(my_dir)
             elif list_objs is None or len(list_objs) == 0:
@@ -149,8 +150,8 @@ class Base:
         else:
             my_list = []
             with open(my_file, mode="r", encoding="utf-8") as read_file:
-                list_dicts = [{k : int(v) for k, v in row.items()}
-                    for row in csv.DictReader(read_file, skipinitialspace=True)]
-            for dic in list_dicts:
+                reader = csv.DictReader(read_file, skipinitialspace=True)
+                l_d = [{k: int(v) for k, v in row.items()} for row in reader]
+            for dic in l_d:
                 my_list.append(cls.create(**dic))
             return my_list
