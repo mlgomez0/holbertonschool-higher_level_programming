@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-from models.rectangle import Rectangle
 """This module  has a Square class.
 """
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-
     """class Square.
     the class defines the private instance attributes:
     __width, __height, __x, __y, setter and getter for size
@@ -14,13 +13,23 @@ class Square(Rectangle):
     """
 
     def __init__(self, size, x=0, y=0, id=None):
+        """
+        module pass values to super class
+        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """
+        module gives format to the print func
+        """
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
+        """
+        this module update the attributes of
+        an instance
+        """
         my_attris = ["id", "size", "x", "y"]
         if args is not None and args != ():
             for i in range(len(my_attris)):
@@ -32,6 +41,10 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """
+        this module returns a dictionaty with the
+        attributes of an instance
+        """
         new_dir = {}
         copy_dir = self.__dict__
         for k, v in self.__dict__.items():
@@ -47,10 +60,16 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """
+        this module return the size attribute
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """
+        this module updates the attributes os an instance
+        """
         if (type(value) != int):
             raise TypeError("width must be an integer")
         elif (value <= 0):
