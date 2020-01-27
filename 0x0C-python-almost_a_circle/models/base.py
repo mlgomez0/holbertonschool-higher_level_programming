@@ -5,6 +5,7 @@ The module has the class Base.
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -107,6 +108,49 @@ class Base:
             with open(my_file, mode="r", encoding="utf-8") as read_file:
                 str_read = read_file.read()
             list_dicts = cls.from_json_string(str_read)
+            for dic in list_dicts:
+                my_list.append(cls.create(**dic))
+            return my_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        method saves into .cvs format
+        into a file
+        """
+        class_name = cls.__name__
+        file_name = class_name + ".csv"
+        my_dir = []
+        a = 0
+        if list_objs is not None and len(list_objs) > 0 and \
+                type(list_objs) == list:
+            for obj in list_objs:
+                if isinstance(obj, Base) is True:
+                    a = 1
+                    my_dir.append(obj.to_dictionary())
+            if a == 1:
+                with open(file_name, mode="w", encoding="utf-8", newline= '') as my_file:
+                    fc = csv.DictWriter(my_file, fieldnames = my_dir[0].keys())
+                    fc.writeheader()
+                    fc.writerows(my_dir)
+            elif list_objs is None or len(list_objs) == 0:
+                with open(file_name, mode="w", encoding="utf-8") as my_file:
+                    my_file.write(str(my_dir))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        this method return a list of instances
+        """
+        class_name = cls.__name__
+        my_file = class_name + ".csv"
+        if os.path.isfile(my_file) is False:
+            return []
+        else:
+            my_list = []
+            with open(my_file, mode="r", encoding="utf-8") as read_file:
+                list_dicts = [{k : int(v) for k, v in row.items()}
+                    for row in csv.DictReader(read_file, skipinitialspace=True)]
             for dic in list_dicts:
                 my_list.append(cls.create(**dic))
             return my_list
