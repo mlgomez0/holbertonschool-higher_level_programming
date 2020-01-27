@@ -65,7 +65,8 @@ class Base:
         file_name = class_name + ".json"
         my_dir = []
         a = 0
-        if list_objs is not None and type(list_objs) == list:
+        if list_objs is not None and len(list_objs) > 0 and \
+                type(list_objs) == list:
             for obj in list_objs:
                 if isinstance(obj, Base) is True:
                     a = 1
@@ -73,7 +74,7 @@ class Base:
             if a == 1:
                 with open(file_name, mode="w", encoding="utf-8") as my_file:
                     my_file.write(cls.to_json_string(my_dir))
-        elif list_objs is None:
+        elif list_objs is None or len(list_objs) == 0:
             with open(file_name, mode="w", encoding="utf-8") as my_file:
                 my_file.write(str(my_dir))
 
