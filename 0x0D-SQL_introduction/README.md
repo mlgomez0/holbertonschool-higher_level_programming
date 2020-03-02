@@ -17,7 +17,7 @@
 All the files to be executed on Ubuntu 14.04 LTS using MySQL 5.7 (version 5.7.8-rc)
 
 ```bash
-./file_name.sql
+cat file_name.sql | mysql -hlocalhost -uroot -p
 ```
 
 ## Usage
