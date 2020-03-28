@@ -15,8 +15,9 @@ if __name__ == "__main__":
     for r in rows:
         if i < len(rows):
             print("{:s}, ".format(r[0]), end="")
+            i += 1
         else:
-            print(r[0])
-        i += 1
+            print(r[0], end="")
+    print()
     cur.close()
     db.close()
