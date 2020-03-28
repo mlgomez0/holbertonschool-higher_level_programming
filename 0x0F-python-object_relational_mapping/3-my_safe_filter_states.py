@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script to print name and id safety for given name for a table using MySQLdb"""
+"""print name and id safety for given name for a table using MySQLdb"""
 import MySQLdb
 import sys
 if __name__ == "__main__":
