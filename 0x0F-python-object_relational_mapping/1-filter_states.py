@@ -9,5 +9,8 @@ if __name__ == "__main__":
                 states.name FROM states WHERE name RLIKE '^[N].*$'\
                 ORDER BY states.id ASC")
     rows = cur.fetchall()
-    for r in rows:
-        print(r)
+    if rows:
+        for r in rows:
+            print(r)
+    else:
+        print()
