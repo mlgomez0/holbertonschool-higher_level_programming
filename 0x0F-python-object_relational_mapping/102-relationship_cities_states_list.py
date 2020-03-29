@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script that lists all State objects from the database hbtn_0e_6_usa
+"""script that lists all State objects ina  given db
 """
 import sys
 from relationship_state import Base, State
@@ -13,9 +13,6 @@ st/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     se = Session()
-    q = se.query(State).order_by(State.id)
-    name_l = ""
+    q = se.query(City).order_by(City.id)
     for i in q:
-        print("{:d}: {:s}".format(i.id, i.name))
-        for j in i.cities:
-            print("    {:d}: {:s}".format(j.id, j.name))
+        print("{:d}: {:s} -> {:s}".format(i.id, i.name, i.state.name))
