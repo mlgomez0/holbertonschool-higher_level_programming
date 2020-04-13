@@ -1,2 +1,2 @@
-#Algorithm complexity
+O(nlog(n))
 O(nlog(n))
