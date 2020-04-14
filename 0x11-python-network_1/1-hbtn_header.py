@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#takes and url sends a request and displays the value of the X-Request-Id.
+# takes and url sends a request and displays the value of the X-Request-Id.
 
 import urllib.request
 import sys

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#takes and url sends a request: displays body and handles error.
+# takes and url sends a request: displays body and handles error.
 
 import urllib.request
 import sys

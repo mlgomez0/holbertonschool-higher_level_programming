@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-#script that fetches https://intranet.hbtn.io/status
+# script that fetches https://intranet.hbtn.io/status
+
 import urllib.request
+
 with urllib.request.urlopen('https://intranet.hbtn.io/status') as resp:
     html = resp.read()
     print("Body response:")
