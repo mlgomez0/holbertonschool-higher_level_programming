@@ -10,5 +10,9 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/" + user + "/" + repo + "/commits"
     req = requests.get(url)
     d = req.json()
-    for i in range(10):
-        print("{}: {}".format(d[i]['sha'], d[i]['commit']['author']['name']))
+    c = 0
+    for i in d:
+        print("{}: {}".format(i['sha'], i['commit']['author']['name']))
+        c += 1
+        if c == 10:
+            break
