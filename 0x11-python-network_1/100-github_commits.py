@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-# list 10 commits (from the most recent to oldest) of the repository rails by given user
+"""10 commits from the newest of the repository rails by given user"""
 import requests
 import sys
 
-user = sys.argv[2]
-repo = sys.argv[1]
-url = "https://api.github.com/repos/" + user + "/" + repo + "/commits"
-req = requests.get(url)
-dir_element = req.json()
-print("{}: {}".format(dir_element['id'])
-except:
-    print("None")
+if __name__ == "__main__":
+
+    user = sys.argv[2]
+    repo = sys.argv[1]
+    url = "https://api.github.com/repos/" + user + "/" + repo + "/commits"
+    req = requests.get(url)
+    d = req.json()
+    for i in range(10):
+        print("{}: {}".format(d[i]['sha'], d[i]['commit']['author']['name']))
