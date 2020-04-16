@@ -8,7 +8,10 @@ if __name__ == "__main__":
     user = sys.argv[2]
     repo = sys.argv[1]
     url = "https://api.github.com/repos/" + user + "/" + repo + "/commits"
-    req = requests.get(url)
-    d = req.json()
-    for i in range(10):
-        print("{}: {}".format(d[i]['sha'], d[i]['commit']['author']['name']))
+    try:
+        req = requests.get(url)
+        d = req.json()
+        for i in range(10):
+            print("{}: {}".format(d[i]['sha'], d[i]['commit']['author']['name']))
+    except:
+        print("None")
