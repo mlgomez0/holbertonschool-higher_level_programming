@@ -11,4 +11,4 @@ if __name__ == "__main__":
     req = requests.get(url)
     d = req.json()
     for i in range(10):
-        print("{}: {}".format(d[i].get('sha'), d[i].get('commit').get('author').get('name')))
+        print("{}: {}".format(d[i]['sha'], d[i]['commit']['author']['name']))
