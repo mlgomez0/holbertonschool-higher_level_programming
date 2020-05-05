@@ -2,7 +2,7 @@
 /*  searches the second biggest integer in the list of arguments */
 
 const args = process.argv;
-const newArgs = args.slice(2).sort();
+const newArgs = args.slice(2).sort(function (a, b) { return a - b; });
 if (args.length <= 3) {
   console.log(0);
 } else {
