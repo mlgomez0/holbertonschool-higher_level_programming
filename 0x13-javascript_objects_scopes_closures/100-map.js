@@ -5,6 +5,6 @@
  */
 
 const list = require('./100-data').list;
-const listNew = list.map(x => x * (list.indexOf(x)));
+const listNew = list.map((value, index) => { return value * index; });
 console.log(list);
 console.log(listNew);
