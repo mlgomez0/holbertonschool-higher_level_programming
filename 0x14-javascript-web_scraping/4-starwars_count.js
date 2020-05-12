@@ -9,7 +9,7 @@ const request = require('request');
 let count = 0;
 request(url, function (error, response, body) {
   if (error) {
-    return console.error(error);
+    return console.log(error);
   }
   const allTitles = JSON.parse(body);
   for (let ti = 0; ti < allTitles.results.length; ti++) {
