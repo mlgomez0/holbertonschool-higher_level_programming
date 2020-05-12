@@ -11,17 +11,23 @@ request(url, function (error, response, body) {
     return console.log(error);
   }
   const data = JSON.parse(body);
-  console.log('all character:', data.characters);
-  const names = [];
+  let count = 1;
   for (let i = 0; i < data.characters.length; i++) {
-    console.log('every character', data.characters[i]);
-    request(data.characters[i], function (error, response, body) {
+    let charList = data.characters[i];
+    console.log(charList);
+    request(charList, function (error, response, body) {
+      console.log(charList);
+      const dataCharIdList = data.characters[i].split('/');
+      const dataCharId = dataCharIdList[dataCharIdList.length - 2]
       if (error) {
         return console.log(error);
       }
       const dataChar = JSON.parse(body);
-      names.push(dataChar.name);
+      console.log(dataCharId, count);
+      if (dataCharId === count) {
+        console.log(dataChar.name);
+      }
+      count = count + 1;
     });
   }
-  console.log(names);
 });
