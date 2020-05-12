@@ -6,7 +6,7 @@ const file = args[2];
 const fs = require('fs');
 fs.readFile(file, 'utf-8', function (err, data) {
   if (err) {
-    return console.error(err);
+    return console.log(err);
   }
   process.stdout.write(data);
 });
