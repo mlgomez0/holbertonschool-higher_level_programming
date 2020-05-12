@@ -1,0 +1,27 @@
+#!/usr/bin/node
+/*  script that prints all characters of a Star Wars movie.
+    with a given movie ID.
+ */
+
+const args = process.argv;
+const url = 'https://swapi-api.hbtn.io/api/films/' + args[2];
+const request = require('request');
+request(url, function (error, response, body) {
+  if (error) {
+    return console.log(error);
+  }
+  const data = JSON.parse(body);
+  console.log('all character:', data.characters);
+  const names = [];
+  for (let i = 0; i < data.characters.length; i++) {
+    console.log('every character', data.characters[i]);
+    request(data.characters[i], function (error, response, body) {
+      if (error) {
+        return console.log(error);
+      }
+      const dataChar = JSON.parse(body);
+      names.push(dataChar.name);
+    });
+  }
+  console.log(names);
+});
