@@ -12,10 +12,12 @@ request(url, function (error, response, body) {
   }
   const allTitles = JSON.parse(body).results;
   let count = 0;
+  const charId = '18';
   for (const i in allTitles) {
     const allChars = allTitles[i].characters;
     for (let idx = 0; idx < allChars.length; idx++) {
-      if (allChars[idx] === 'https://swapi-api.hbtn.io/api/people/18/') {
+      const cId = allChars[idx].split('/');
+      if (cId[cId.length - 2] === charId) {
         count = count + 1;
       }
     }
