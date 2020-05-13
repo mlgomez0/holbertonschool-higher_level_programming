@@ -1,6 +1,7 @@
 #!/usr/bin/node
 /*  script that prints all characters of a Star Wars movie.
-    with a given movie ID.
+    with a given movie ID, this code presents callback hell issues
+    fixed by use of promise and wait.
  */
 
 const args = process.argv;
