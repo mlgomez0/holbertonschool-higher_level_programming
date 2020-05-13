@@ -6,28 +6,40 @@
 const args = process.argv;
 const url = 'https://swapi-api.hbtn.io/api/films/' + args[2];
 const request = require('request');
-request(url, function (error, response, body) {
-  if (error) {
-    return console.log(error);
-  }
-  const data = JSON.parse(body);
-  let count = 1;
-  for (let i = 0; i < data.characters.length; i++) {
-    let charList = data.characters[i];
-    console.log(charList);
-    request(charList, function (error, response, body) {
-      console.log(charList);
-      const dataCharIdList = data.characters[i].split('/');
-      const dataCharId = dataCharIdList[dataCharIdList.length - 2]
-      if (error) {
-        return console.log(error);
+
+function listAll (url) {
+  return new Promise(function (resolve, reject) {
+    request(url, function (error, res, body) {
+      if (res.statusCode === 200 && !error) {
+        resolve(body);
+        const data = JSON.parse(body);
+        const dataChar = data.characters;
+        return dataChar;
+      } else {
+        console.log(error);
       }
-      const dataChar = JSON.parse(body);
-      console.log(dataCharId, count);
-      if (dataCharId === count) {
-        console.log(dataChar.name);
-      }
-      count = count + 1;
     });
+  });
+}
+function dataChar (url) {
+  return new Promise(function (resolve, reject) {
+    request(url, function (error, res, body) {
+      if (res.statusCode === 200 && !error) {
+        resolve(body);
+        const data = JSON.parse(body);
+        console.log(data.name);
+      } else {
+        reject(error);
+      }
+    });
+  });
+}
+async function iter () {
+  const fistRequest = await listAll(url);
+  const numChar = JSON.parse(fistRequest).characters.length;
+  for (let i = 0; i < numChar; i++) {
+    const urlCh = JSON.parse(fistRequest).characters[i];
+    await dataChar(urlCh);
   }
-});
+}
+iter();
