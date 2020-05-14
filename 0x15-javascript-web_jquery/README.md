@@ -1,5 +1,7 @@
 #0x15. Javascript - Web JQuery
 
+## Support Documentation
+https://api.jquery.com/
 ## Concepts
 
 - How to select HTML elements in Javascript
