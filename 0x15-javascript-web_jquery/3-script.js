@@ -1,5 +1,7 @@
 /* script that dds the class red to the HTML tag HEADER */
 
-$('#red_header').click(function () {
-  $('header').addClass('red');
+$(document).ready(function () {
+  $('#red_header').click(function () {
+    $('header').addClass('red');
+  });
 });

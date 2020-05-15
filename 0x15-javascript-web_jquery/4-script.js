@@ -3,6 +3,8 @@
    never both in the same time, never empty.
  */
 
-$('#toggle_header').click(function () {
-  $('header').toggleClass('red green');
+$(document).ready(function () {
+  $('#toggle_header').click(function () {
+    $('header').toggleClass('red green');
+  });
 });
